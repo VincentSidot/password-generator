@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Simple Password Generator</title>
+</head>
+<body>
+    <div class="framed">
+        <h1 class="title">Simple Password Generator</h1>
+
+        <div id="params" class="input">
+            <ul>
+                <li>
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="useNumbers" checked="checked" class="checkmark">
+                        Use Numbers
+                        <i class="fa fa-info-circle tooltip" aria-hidden="true">
+                            <span class="tooltiptext">Use numbers in the password</span>
+                        </i>
+                    </label>
+                </li>
+                <li>
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="useSymbols" class="checkmark">
+                        Use Symbols
+                        <i class="fa fa-info-circle tooltip" aria-hidden="true">
+                            <span class="tooltiptext">Use symbols in the password</span>
+                        </i>
+                    </label>
+                </li>    
+                <li>
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="easyToRead" class="checkmark">
+                        Easy To Read
+                        <i class="fa fa-info-circle tooltip" aria-hidden="true">
+                            <span class="tooltiptext">Avoid ambiguous characters</span>
+                        </i>
+                    </label>
+                </li>
+                <li>
+                    <label class="prevent-select">
+                        <input id="lengthOutput" readonly class="length-output">
+                        Password Length
+                        <i class="fa fa-info-circle tooltip" aria-hidden="true">
+                            <span class="tooltiptext">Length of the password</span>
+                        </i>
+                        <input type="range" id="lengthRange" value="16" min="8" max="128" class="slider">
+                    </label>
+                </li>
+            </ul>
+        </div>
+
+        <div id="password" class="output">
+            <button id="generatePassword">
+                <i class="fa fa-refresh" aria-hidden="true"></i>
+            </button>
+            <button id="copyPassword">
+                <i class="fa fa-clone" aria-hidden="true"></i>  
+            </button>
+            <input type="text" id="passwordOutput" value="" readonly class="outputPassword">
+            <br>
+            <div class="alert" id="successfullyCopied">
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                <strong>Success!</strong> Password copied to clipboard.
+            </div> 
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>
