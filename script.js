@@ -13,7 +13,6 @@ const generatePassword = document.getElementById("generatePassword");
 const copyPassword = document.getElementById("copyPassword");
 const successfullyCopied = document.getElementById("successfullyCopied");
 
-
 lengthOutput.value = lengthRange.value;
 lengthRange.oninput = () => {
     lengthOutput.value = lengthRange.value;
@@ -75,9 +74,17 @@ function buildPassword(
     }
 
     let password = "";
+    let randoms = window.crypto.getRandomValues(new Uint8Array(chars.length + lenght));
+    let i = 0;
+
+    // Shuffle chars
+    chars = chars.split("").sort(() => {
+        let random = randoms[i++];
+        return random % 2;
+    }).join("");
 
     for (let i = 0; i < lenght; i++) {
-        password += chars.charAt(Math.floor(Math.random() * chars.length));
+        password += chars[randoms[i++] % chars.length];
     }
 
     return password;
